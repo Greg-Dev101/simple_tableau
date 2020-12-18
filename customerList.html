@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Projet ABI par la team SGMC</title>
+</head>
+
+
+<body>
+
+    <header id="header">
+        <div id="logo">
+            <a href="./index.html"><img src="./Pictures/ABI.png" /></a>   
+        </div>
+        <div id="websiteTitle">
+            <h1>ABI</br>Active Bretagne Informatique</h1>
+            <p id="description">The IT Services and Engineering Company</p>
+        </div>            
+        <form id="loginout">
+            <div>
+                <label for="login">Login :</label>
+                <input type="text" name="login" id="login" size="15" maxlength="30" placeholder="login" />
+            </div>
+            <div>
+                <label for="password">Password :</label>
+                <input type="password" name="password" id="password" size="15" maxlength="15" placeholder="password" />
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+    </header>
+
+    <nav>
+        <ul>
+            
+            <li><a href="customerList.html">Customer list</a></li>
+            <li><a href="./addNewCustomer.html#addCustomer">Add new customer</a></li>
+            <li><a href="./staffData.html#staffData">Staff data</a></li>
+            <li><a href="./updateStaffData.html">Update staff data</a></li>
+            
+
+        </ul>
+    </nav>
+    
+    <body>
+        <h1>Customer List Layout</h1>
+    
+    
+        <table id="customers">
+        <thead>
+            <tr>
+                <th>Customer name</th>
+                <th>Customer ID</th>
+                <th>Type of Customer</th>
+                <th>Field of activity</th>
+                <th>Turnhover<br>(KF)</th>
+                <th>Staff</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Contact</th>
+                <th>Comments</th>
+            </tr>
+        </head>
+    
+        <tbody id="listCustomer">
+                <tr>
+                    <td>Auchan</td>
+                    <td></td>
+                    <td>Public</td>
+                    <td>Supermarket</td>
+                    <td>80 000</td>
+                    <td>500</td>
+                    <td>60 rue Legrand - 69 000 Lyon</td>
+                    <td>04.50.00.00.00</td>
+                    <td>Pierre Mayer</td>
+                    <td>Development projects for 2021</td>
+                </tr>
+                <tr>
+                    <td>Decathlon</td>
+                    <td></td>
+                    <td>Public</td>
+                    <td>Sport</td>
+                    <td>20 000</td>
+                    <td>300</td>
+                    <td>17 rue Java - 69 200 Villeurbanne</td>
+                    <td>04.50.00.00.00</td>
+                    <td>Franck Petit</td>
+                    <td>No projects</td>
+                </tr>
+                <tr>
+                    <td>Optic 2000</td>
+                    <td></td>
+                    <td>Public</td>
+                    <td>Optique</td>
+                    <td>5 000</td>
+                    <td>100</td>
+                    <td>137 Avenue Jules Ferry - 69 200 Villeurbanne</td>
+                    <td>04.50.00.00.00</td>
+                    <td>Muriel Legrand</td>
+                    <td>Will see clearer in 2022</td>
+                </tr>
+                <tr>
+                    <td>Atol</td>
+                    <td></td>
+                    <td>Public</td>
+                    <td>Optique</td>
+                    <td>4 000</td>
+                    <td>120</td>
+                    <td>999 Avenue de la Marne - 69 000 Lyon</td>
+                    <td>04.50.00.00.00</td>
+                    <td>Hervé Kirchbaum</td>
+                    <td></td>
+                </tr>
+        </tbody>
+    </table>
+
+        <footer>    
+            <section id="footer">
+                <div>
+                    <h3>Adresse</h3>
+                    <p>Siège social ABI</br>17 rue Saint-Martin</br>35 000 Rennes</br></p>
+                </div>
+                <div>
+                    <h3>Horaire d'ouverture</h3>
+                    <p>Du Lundi au Jeudi de 9H à 18H.</br>Le Vendredi de 9H à 16H.</p>
+                </div>
+                <div>
+                    <h3>Plan du site</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.582534489324!2d-1.678601885142977!3d48.11828836048454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480ede38181173e3%3A0xc9c569b125485ba1!2s37%20Rue%20Saint-Martin%2C%2035700%20Rennes!5e0!3m2!1sfr!2sfr!4v1607923067042!5m2!1sfr!2sfr" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </section>
+            <ul>
+                <li><a href="./legalnotice.html#legalNotice">Legal notice</a></li>
+                <li><a href="./index.html">Contact</a></li>
+            </ul>
+        </footer>
+    
+        <script>
+
+            const clients = JSON.parse(localStorage.getItem('clients')) ? JSON.parse(localStorage.getItem('clients')) : [];
+            
+            console.log(clients)
+            
+            for (let i = 0; i < clients.length ; i++) {
+                const customerTab = [
+                    clients[i].companyName,
+                    clients[i].clientNumber,
+                    clients[i].clientType,
+                    clients[i].clientActivity,
+                    clients[i].clientTurnover,
+                    clients[i].clientStaff,
+                    clients[i].clientAdress,
+                    clients[i].clientPhone,
+                    clients[i].contact,
+                    clients[i].comercialComments
+                ]
+            
+                const tbody = document.getElementById("listCustomer");
+                const tr = document.createElement("tr");
+                tbody.appendChild(tr);
+            
+                for (let j = 0; j < customerTab.length; j++) {
+                    const td = document.createElement('td');
+                    td.innerHTML = customerTab[j];
+                    tr.appendChild(td);
+                }
+            }
+            
+                </script>
+
+</body>
+</html>
